@@ -69,18 +69,18 @@ api:
   config:
     aws:
       keys:
-        access_key_id: AKIA55ZGUTHVGOYNQNR2
-        secret_access_key: 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
+        access_key_id: ${{secrets.AWS_ACCESS_KEY}}
+        secret_access_key: ${{secrets.AWS_SECRET}}
       s3:
         region: us-east-1
         static_resource_bucket: xrengine-static-resource
       cloudfront:
         domain: resources.<domain>
       sns:
-        access_key_id: AKIA55ZGUTHVAMK2JWA7
+        access_key_id: ${{secrets.SNS_ACCESS}}
         application_id: <AWS_SNS_APPLICATION_ID>
         region: us-east-1
-        secret_access_key: DN2QFerIOiuWZxxEOfr1v0w95ImJu42LpzbHubr+
+        secret_access_key: ${{secrets.SNS_SECRET}}
         sender_id: <AWS_SNS_SENDER_ID>
     host: https://dev.<domain>/
   extraEnv:
@@ -88,9 +88,9 @@ api:
     APP_HOST: dev.<domain>
     APP_URL: https://dev.<domain>
     AUTH_SECRET: <INSERT_A_UUID_OR_SOMETHING_SIMILAR>
-    AWS_SMS_ACCESS_KEY_ID: AKIA55ZGUTHVAMK2JWA7
+    AWS_SMS_ACCESS_KEY_ID: ${{secrets.SNS_ACCESS}}
     AWS_SMS_REGION: us-east-1
-    AWS_SMS_SECRET_ACCESS_KEY: DN2QFerIOiuWZxxEOfr1v0w95ImJu42LpzbHubr+
+    AWS_SMS_SECRET_ACCESS_KEY: ${{secrets.SNS_SECRET}}
     AWS_SMS_TOPIC_ARN: <SNS_TOPIC_ARN>
     CERT: certs/cert.pem
     KEY: certs/key.pem
@@ -121,8 +121,8 @@ api:
     SMTP_SECURE: "true"
     SMTP_USER: <AWS_SMTP_USER_ID>
     STORAGE_PROVIDER: aws
-    STORAGE_AWS_ACCESS_KEY_ID: AKIA55ZGUTHVGOYNQNR2
-    STORAGE_AWS_ACCESS_KEY_SECRET: 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
+    STORAGE_AWS_ACCESS_KEY_ID: ${{secrets.S3_ACCESS}}
+    STORAGE_AWS_ACCESS_KEY_SECRET: ${{secrets.S3_SECRET}}
     STORAGE_CLOUDFRONT_DOMAIN: resources.<domain>
     STORAGE_CLOUDFRONT_DISTRIBUTION_ID: <cloudfront_distribution_id>
     STORAGE_S3_REGION: us-east-1
@@ -192,18 +192,18 @@ media:
   config:
     aws:
       keys:
-        access_key_id: AKIA55ZGUTHVISCUHZLJ
-        secret_access_key: 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
+        access_key_id: ${{secrets.AWS_ACCESS_KEY}}
+        secret_access_key: ${{secrets.AWS_SECRET}}
       s3:
         region: us-east-1
         static_resource_bucket: xrengine-static-resource
       cloudfront:
         domain: resources.<domain>
       sns:
-        access_key_id: AKIA55ZGUTHVAMK2JWA7
+        access_key_id: ${{secrets.SNS_ACCESS}}
         application_id: <AWS_SNS_APPLICATION_ID>
         region: us-east-1
-        secret_access_key: DN2QFerIOiuWZxxEOfr1v0w95ImJu42LpzbHubr+
+        secret_access_key: ${{secrets.SNS_SECRET}}
         sender_id: <AWS_SNS_SENDER_ID>
     host: https://dev.<domain>/
   extraEnv:
@@ -211,9 +211,9 @@ media:
     APP_HOST: dev.<domain>
     APP_URL: https://dev.<domain>
     AUTH_SECRET: <INSERT_A_UUID_OR_SOMETHING_SIMILAR>
-    AWS_SMS_ACCESS_KEY_ID: AKIA55ZGUTHVAMK2JWA7
+    AWS_SMS_ACCESS_KEY_ID: ${{secrets.SNS_ACCESS}}
     AWS_SMS_REGION: us-east-1
-    AWS_SMS_SECRET_ACCESS_KEY: DN2QFerIOiuWZxxEOfr1v0w95ImJu42LpzbHubr+
+    AWS_SMS_SECRET_ACCESS_KEY: ${{secrets.SNS_SECRET}}
     AWS_SMS_TOPIC_ARN: <SNS_TOPIC_ARN>
     FACEBOOK_CALLBACK_URL: https://dev.<domain>/auth/oauth/facebook
     FACEBOOK_CLIENT_ID: "<FB_OAUTH_CLIENT_ID>"
@@ -236,8 +236,8 @@ media:
     SMTP_SECURE: "true"
     SMTP_USER: <AWS_SMTP_USER_ID>
     STORAGE_PROVIDER: aws
-    STORAGE_AWS_ACCESS_KEY_ID: AKIA55ZGUTHVGOYNQNR2
-    STORAGE_AWS_ACCESS_KEY_SECRET: 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
+    STORAGE_AWS_ACCESS_KEY_ID: ${{secrets.S3_ACCESS}}
+    STORAGE_AWS_ACCESS_KEY_SECRET: ${{secrets.S3_SECRET}}
     STORAGE_CLOUDFRONT_DOMAIN: resources.<domain>
     STORAGE_CLOUDFRONT_DISTRIBUTION_ID: <cloudfront_distribution_id>
     STORAGE_S3_REGION: us-east-1
@@ -276,8 +276,8 @@ gameserver:
     APP_HOST: dev.<domain>
     AUTH_SECRET: <SAME_AUTH_SECRET_AS_IN_API>
     APP_URL: https://dev.<domain>
-    ROUTE53_ACCESS_KEY_ID: AKIA55ZGUTHVDAAGYUEK
-    ROUTE53_ACCESS_KEY_SECRET: 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
+    ROUTE53_ACCESS_KEY_ID: ${{secrets.R53_ACCESS}}
+    ROUTE53_ACCESS_KEY_SECRET: ${{secrets.R53_SECRET}}
     ROUTE53_HOSTED_ZONE_ID: <ROUTE53_HOSTED_ZONE_ID>
     RTC_START_PORT: "40000"
     RTC_END_PORT: "40099"
@@ -286,8 +286,8 @@ gameserver:
     GAMESERVER_PORT: "3031"
     GAMESERVER_MODE: "realtime"
     STORAGE_PROVIDER: aws
-    STORAGE_AWS_ACCESS_KEY_ID: AKIA55ZGUTHVGOYNQNR2
-    STORAGE_AWS_ACCESS_KEY_SECRET: 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
+    STORAGE_AWS_ACCESS_KEY_ID: ${{secrets.S3_ACCESS}}
+    STORAGE_AWS_ACCESS_KEY_SECRET: ${{secrets.S3_SECRET}}
     STORAGE_CLOUDFRONT_DOMAIN: resources.<domain>
     STORAGE_CLOUDFRONT_DISTRIBUTION_ID: <cloudfront_distribution_id>
     STORAGE_S3_REGION: us-east-1
@@ -360,8 +360,8 @@ editor:
                 operator: In
                 values:
                   - ng-1
-  ingress:
-    hosts:
+  ingress: 
+    hosts: 
       - host: dev.<domain>
         paths:
           - /create
@@ -406,8 +406,8 @@ analytics:
 builder:
   extraEnv:
     RELEASE_NAME: <RELEASE_NAME>
-    AWS_ACCESS_KEY: AKIA55ZGUTHVISCUHZLJ
-    AWS_SECRET: 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
+    AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY}}
+    AWS_SECRET: ${{secrets.AWS_SECRET}}
     AWS_REGION: us-east-1
     CLUSTER_NAME: XREngine
     ECR_URL: public.ecr.aws/o5u4a7h1
@@ -415,8 +415,8 @@ builder:
     DOCKER_LABEL: <DOCKER_LABEL>
     PRIVATE_ECR: "false"
     STORAGE_PROVIDER: aws
-    STORAGE_AWS_ACCESS_KEY_ID: AKIA55ZGUTHVGOYNQNR2
-    STORAGE_AWS_ACCESS_KEY_SECRET: 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
+    STORAGE_AWS_ACCESS_KEY_ID: ${{secrets.S3_ACCESS}}
+    STORAGE_AWS_ACCESS_KEY_SECRET: ${{secrets.S3_SECRET}}
     STORAGE_CLOUDFRONT_DOMAIN: <CLOUDFRONT_DOMAIN>
     STORAGE_CLOUDFRONT_DISTRIBUTION_ID: <CLOUDFRONT_DISTRIBUTION_ID>
     STORAGE_S3_REGION: us-east-1
